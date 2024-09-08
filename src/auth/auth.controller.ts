@@ -6,7 +6,7 @@ import { AtGuard } from './common/guards/at.guard';
 import { RtGuard } from './common/guards/rt.guard';
 import { GetCurrentUser } from './common/decorators/get-current-user.decorator';
 import { GetCurrentUserId } from './common/decorators/get-current-user-id.decorator';
-import { Public } from './common/decorators/public.decorator';
+
 
 @Controller('auth')
 export class AuthController {
@@ -35,9 +35,10 @@ export class AuthController {
     @Post('refresh')
     @HttpCode(HttpStatus.OK)
     refreshTokens(
-        @GetCurrentUserId() userID: number, 
+        @GetCurrentUserId() userId: number, 
         @GetCurrentUser('refreshToken') refreshTokens: string
     ) {
-        return this.authService.refreshTokens(userID, refreshTokens);
+        console.log(userId, refreshTokens);
+        return this.authService.refreshTokens(userId, refreshTokens);
     }
 }
