@@ -38,7 +38,6 @@ export class AuthController {
         @GetCurrentUserId() userId: number, 
         @GetCurrentUser('refreshToken') refreshTokens: string
     ) {
-        console.log(userId, refreshTokens);
         return this.authService.refreshTokens(userId, refreshTokens);
     }
 }

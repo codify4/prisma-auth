@@ -3,6 +3,6 @@ import { AuthModule } from './auth/auth.module';
 import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
-  imports: [AuthModule, PrismaModule]
+  imports: [AuthModule, PrismaModule],
 })
 export class AppModule {}
