@@ -33,7 +33,7 @@ export class AuthService {
         const user = await this.prisma.user.findUnique({
             where: {
                 email: authDto.email,
-            },
+            }
         })
 
         if (!user) throw new ForbiddenException('Access denied');
@@ -66,7 +66,8 @@ export class AuthService {
                 id: userId,
             },
         })
-        if (!user) throw new ForbiddenException('Access denied');
+
+        if (!user || !user.hashedRt) throw new ForbiddenException('Access denied');
 
         const rtMatch = await bcrypt.compare(rt, user.hashedRt);
         if (!rtMatch) throw new ForbiddenException('Access denied');
