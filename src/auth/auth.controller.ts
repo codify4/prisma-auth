@@ -27,8 +27,8 @@ export class AuthController {
     @UseGuards(AtGuard)
     @Post('logout')
     @HttpCode(HttpStatus.OK)
-    logout(@GetCurrentUserId() userID: number) {
-        return this.authService.logout(userID);
+    logout(@GetCurrentUserId() userId: number) {
+        return this.authService.logout(userId);
     }
 
     @UseGuards(RtGuard)
