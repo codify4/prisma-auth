@@ -2,10 +2,10 @@ import { Body, Controller, HttpCode, HttpStatus, Post, UseGuards, ValidationPipe
 import { AuthService } from './auth.service';
 import { AuthDto } from './dto/auth.dto';
 import { Tokens } from './types/tokes.type';
-import { AtGuard } from './common/guards/at.guard';
-import { RtGuard } from './common/guards/rt.guard';
-import { GetCurrentUser } from './common/decorators/get-current-user.decorator';
-import { GetCurrentUserId } from './common/decorators/get-current-user-id.decorator';
+import { GetCurrentUserId } from 'src/common/decorators/get-current-user-id.decorator';
+import { GetCurrentUser } from 'src/common/decorators/get-current-user.decorator';
+import { RtGuard } from './guards/rt.guard';
+import { AtGuard } from './guards/at.guard';
 
 
 @Controller('auth')
